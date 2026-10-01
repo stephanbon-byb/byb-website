@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Draft manual: kept out of search engines until approved -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>Handleiding · Beat Your Best</title>
+  <meta name="description" content="Handleiding Beat Your Best: waarom het werkt zoals het werkt, wat je ermee kunt en hoe je het gebruikt. Voor roeiers en coaches.">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+  /* Same tokens and type as the RP3 partner page (rp3.html), single light theme */
+  :root {
+    color-scheme: light;
+    --ground: #f4f7f6;
+    --paper: #ffffff;
+    --ink: #0f1f2b;
+    --ink-2: #3d4d58;
+    --muted: #5f6f79;
+    --line: #dbe3e4;
+    --rp3: #1fb8dd;
+    --rp3-deep: #0a7e9c;
+    --byb: #9acb24;
+    --byb-deep: #5c8a00;
+    --byb-blue: #1d6fc2;
+    --coach: #6b4fbb;
+    --night: #0f1f2b;
+    --night-2: #1a2e3c;
+    --display: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+    --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 16px; }
+  body { margin: 0; background: var(--ground); color: var(--ink); font: 400 16px/1.6 var(--body); -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding-inline: 20px; }
+  img { max-width: 100%; height: auto; display: block; }
+  h1, h2, h3, h4 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.05; }
+  h2 { font-size: clamp(32px, 4.4vw, 46px); font-weight: 700; }
+  h3 { font-size: 26px; font-weight: 700; }
+  p { margin: 0; }
+  p + p { margin-top: 10px; }
+  a { color: var(--byb-blue); }
+  a:focus-visible { outline: 2px solid var(--byb-blue); outline-offset: 2px; }
+  .eyebrow { font: 600 13px/1 var(--display); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  .lede { font-size: 18px; color: var(--ink-2); max-width: 64ch; }
+
+  /* ---------- Header ---------- */
+  .hero { background: var(--paper); border-bottom: 1px solid var(--line); padding-block: 32px 44px; }
+  .top { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+  .top img { height: 42px; width: auto; }
+  .top .app { margin-left: auto; font: 600 15px/1 var(--display); letter-spacing: .08em; text-transform: uppercase; text-decoration: none; color: var(--ink); border: 1px solid var(--ink); border-radius: 3px; padding: 9px 12px; }
+  .hero h1 { margin-top: 36px; font-size: clamp(44px, 7vw, 80px); font-weight: 800; text-transform: uppercase; }
+  .hero h1 span { background: linear-gradient(90deg, var(--byb-deep), var(--byb-blue)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero .lede { margin-top: 18px; }
+  .audience { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px; }
+
+  /* Labels: who a feature is for */
+  .tag { display: inline-block; font: 600 12px/1 var(--display); letter-spacing: .1em; text-transform: uppercase; padding: 6px 9px; border-radius: 3px; vertical-align: middle; }
+  .tag.rower { background: #eef7d8; color: var(--byb-deep); }
+  .tag.coach { background: #ece7f8; color: var(--coach); }
+  .tag.sub { background: #e3eefa; color: var(--byb-blue); }
+  .tag.club { background: #e0f6fb; color: var(--rp3-deep); }
+
+  /* ---------- Layout: sticky contents + main ---------- */
+  .doc { display: grid; grid-template-columns: 250px 1fr; gap: 44px; align-items: start; padding-block: 44px 80px; }
+  .toc { position: sticky; top: 16px; max-height: calc(100vh - 32px); overflow: auto; font-size: 14.5px; }
+  .toc summary { font: 600 13px/1 var(--display); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); cursor: pointer; list-style: none; padding-block: 4px 12px; }
+  .toc summary::-webkit-details-marker { display: none; }
+  .toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+  .toc > details > ol > li > a { font-weight: 600; color: var(--ink); }
+  .toc ol ol { padding-left: 12px; margin-block: 2px 8px; border-left: 2px solid var(--line); }
+  .toc a { display: block; padding: 3px 0 3px 8px; color: var(--ink-2); text-decoration: none; }
+  .toc a:hover, .toc a:focus-visible { color: var(--byb-blue); }
+  main { min-width: 0; display: grid; gap: 64px; }
+
+  .chap { display: grid; gap: 26px; }
+  .chap-head { display: grid; gap: 12px; padding-bottom: 18px; border-bottom: 3px solid var(--ink); }
+  .chap-head .num { font: 700 15px/1 var(--mono); color: var(--byb-deep); }
+
+  /* ---------- Map of the app ---------- */
+  .map { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .area { background: var(--paper); border: 1px solid var(--line); border-top: 5px solid var(--byb); border-radius: 6px; padding: 18px; display: grid; gap: 8px; align-content: start; }
+  .area.coach { border-top-color: var(--coach); }
+  .area.acc { border-top-color: var(--rp3-deep); }
+  .area.dash { border-top-color: var(--byb-blue); }
+  .area h3 { font-size: 24px; }
+  .area p { font-size: 14.5px; color: var(--ink-2); }
+  .area ul { margin: 4px 0 0; padding-left: 18px; font-size: 14.5px; color: var(--ink-2); display: grid; gap: 2px; }
+  .area a { font-weight: 600; text-decoration: none; }
+
+  /* ---------- "Ik wil..." index ---------- */
+  .want { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .want-group + .want-group { border-top: 1px solid var(--line); }
+  .want-group h3 { font-size: 19px; padding: 14px 20px 6px; }
+  .want ul { list-style: none; margin: 0; padding: 0 0 8px; }
+  .want li a { display: grid; grid-template-columns: 1fr auto; gap: 16px; padding: 8px 20px; text-decoration: none; color: var(--ink); font-size: 15.5px; }
+  .want li a span { color: var(--muted); font-size: 13.5px; text-align: right; }
+  .want li a:hover, .want li a:focus-visible { background: var(--ground); }
+
+  /* ---------- Feature block: why / what / how ---------- */
+  .feat { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 26px 26px 28px; display: grid; gap: 18px; }
+  .feat-head { display: grid; gap: 10px; }
+  .feat-head .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .where { font: 500 13.5px/1.4 var(--mono); color: var(--muted); }
+  .where b { color: var(--ink); font-weight: 500; }
+  .wwh { display: grid; gap: 16px; }
+  .wwh > div { display: grid; grid-template-columns: 170px 1fr; gap: 16px; }
+  .wwh h4 { font-size: 17px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding-top: 2px; }
+  .wwh .why h4 { color: var(--byb-deep); }
+  .wwh .what h4 { color: var(--byb-blue); }
+  .wwh .how h4 { color: var(--ink); }
+  .wwh p, .wwh li { color: var(--ink-2); font-size: 15.5px; }
+  .wwh ul, .wwh ol { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
+  .wwh b { color: var(--ink); font-weight: 600; }
+  .tip { background: var(--ground); border-left: 4px solid var(--byb); padding: 12px 16px; font-size: 15px; color: var(--ink-2); border-radius: 0 4px 4px 0; }
+
+  /* Image placeholder: replace the whole <figure class="ph"> with <figure><img ...><figcaption>...</figcaption></figure> */
+  figure { margin: 0; }
+  .ph { border: 2px dashed #b8c6c9; border-radius: 6px; background: repeating-linear-gradient(45deg, #fafcfc, #fafcfc 10px, #f2f6f6 10px, #f2f6f6 20px); min-height: 150px; display: grid; place-items: center; text-align: center; padding: 20px; }
+  .ph span { font: 500 13px/1.5 var(--mono); color: var(--muted); max-width: 52ch; }
+  .ph span::before { content: "AFBEELDING · "; color: var(--ink); }
+  figure figcaption { font-size: 13px; color: var(--muted); margin-top: 8px; }
+
+  /* Review notes for Stephan: remove before publishing (search for class="note") */
+  .note { background: #fff6dd; border: 1px solid #f0d58a; border-left: 4px solid #d79b00; border-radius: 4px; padding: 12px 16px; font-size: 14.5px; color: #5a4300; }
+  .note::before { content: "Notitie voor review · "; font-weight: 600; }
+  /* Text that must come from an approved source (coach-content-admin / Stephan) */
+  .todo-text { background: #fdecef; border: 1px dashed #d0435b; border-radius: 4px; padding: 12px 16px; font-size: 14.5px; color: #7a1f2e; }
+  .todo-text::before { content: "Tekst nog aanleveren · "; font-weight: 600; }
+
+  /* ---------- Big picture (dark band) ---------- */
+  .cycle { background: var(--night); color: #dfe8ec; border-radius: 6px; padding: 28px; display: grid; gap: 18px; }
+  .cycle h3 { color: #fff; }
+  .cycle p { color: #c9d5db; }
+  .cycle b { color: #fff; }
+  .steps4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: #2c4252; border: 1px solid #2c4252; border-radius: 4px; overflow: hidden; }
+  .steps4 > div { background: var(--night-2); padding: 16px; display: grid; gap: 6px; align-content: start; }
+  .steps4 .n { font: 700 34px/0.9 var(--display); color: var(--byb); }
+  .steps4 b { font: 700 19px/1.1 var(--display); }
+  .steps4 p { font-size: 14px; }
+
+  .types { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .types > div { background: var(--paper); padding: 16px; display: grid; gap: 6px; align-content: start; }
+  .types .z { font: 600 12px/1 var(--display); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  .types b { font: 700 21px/1.05 var(--display); }
+  .types p { font-size: 14px; color: var(--ink-2); }
+  .bar8020 { display: flex; height: 26px; border-radius: 3px; overflow: hidden; font: 600 13px/26px var(--display); letter-spacing: .08em; color: #fff; }
+  .bar8020 .lo { flex: 80; background: var(--byb-deep); padding-left: 10px; }
+  .bar8020 .hi { flex: 20; background: var(--byb-blue); padding-left: 10px; }
+
+  /* ---------- FAQ ---------- */
+  .faq details { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; }
+  .faq details + details { margin-top: 8px; }
+  .faq summary { cursor: pointer; padding: 14px 18px; font-weight: 600; }
+  .faq details > div { padding: 0 18px 16px; color: var(--ink-2); font-size: 15.5px; display: grid; gap: 8px; }
+
+  /* ---------- Footer ---------- */
+  footer { background: var(--paper); border-top: 1px solid var(--line); padding-block: 32px 40px; }
+  .foot { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; font-size: 15px; }
+  .foot img { height: 34px; width: auto; }
+
+  /* ---------- Responsive ---------- */
+  @media screen and (max-width: 960px) {
+    .doc { grid-template-columns: 1fr; gap: 28px; padding-top: 24px; }
+    .toc { position: static; max-height: none; background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 12px 16px; }
+    .toc summary { padding-bottom: 4px; }
+    .toc details[open] summary { padding-bottom: 12px; }
+    .map, .steps4, .types { grid-template-columns: 1fr 1fr; }
+  }
+  @media screen and (max-width: 640px) {
+    .wrap { padding-inline: 16px; }
+    .map, .steps4, .types { grid-template-columns: 1fr; }
+    .wwh > div { grid-template-columns: 1fr; gap: 4px; }
+    .feat { padding: 20px 18px 22px; }
+    .want li a { grid-template-columns: 1fr; gap: 0; }
+    .want li a span { text-align: left; }
+    .top .app { margin-left: 0; }
+  }
+
+  /* ---------- Print ---------- */
+  @page { size: A4; margin: 12mm; }
+  @media print {
+    html { zoom: 0.7; }
+    .toc, .note, .top .app { display: none; }
+    .doc { grid-template-columns: 1fr; }
+    .hero h1 span { background: none; color: var(--byb-deep); }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .feat, .area, .cycle, .faq details { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="hero">
+  <div class="wrap">
+    <div class="top">
+      <img src="assets/rp3/byb-logo.png" alt="Beat Your Best">
+      <a class="app" href="https://my.beatyourbest.org">Naar de app →</a>
+    </div>
+    <p class="eyebrow" style="margin-top:36px">Handleiding</p>
+    <h1 style="margin-top:12px">Haal alles uit <span>Beat Your Best</span></h1>
+    <p class="lede">Waarom werkt Beat Your Best zoals het werkt, wat kun je ermee, en hoe gebruik je het? Deze handleiding begint bij het grote plaatje en gaat daarna per onderdeel de diepte in. Weet je al wat je zoekt? Kijk dan bij <a href="#ik-wil">Ik wil…</a></p>
+    <div class="audience">
+      <span class="tag rower">Roeier</span>
+      <span class="tag coach">Coach</span>
+      <span class="tag sub">Met abonnement</span>
+      <span class="tag club">Clubbeheerder</span>
+    </div>
+    <p style="margin-top:10px;font-size:14px;color:var(--muted)">Deze labels staan bij elk onderdeel: voor wie het is, en of je er een abonnement voor nodig hebt.</p>
+  </div>
+</header>
+
+<div class="wrap doc">
+
+  <!-- ============ CONTENTS ============ -->
+  <nav class="toc" aria-label="Inhoud">
+    <details open>
+      <summary>Inhoud</summary>
+      <ol>
+        <li><a href="#overzicht">Overzicht</a>
+          <ol>
+            <li><a href="#waarom">Waarom Beat Your Best</a></li>
+            <li><a href="#kaart">De app in één beeld</a></li>
+            <li><a href="#ik-wil">Ik wil…</a></li>
+          </ol>
+        </li>
+        <li><a href="#start">1. Aan de slag</a>
+          <ol>
+            <li><a href="#account">Account en proefmaand</a></li>
+            <li><a href="#koppelen">RP3 koppelen</a></li>
+            <li><a href="#automatisch">Wat er vanzelf gebeurt</a></li>
+            <li><a href="#dashboard">Het dashboard</a></li>
+          </ol>
+        </li>
+        <li><a href="#zelfcoach">2. Zelfcoach</a>
+          <ol>
+            <li><a href="#zc-overzicht">Overzicht</a></li>
+            <li><a href="#zc-workouts">Mijn workouts</a></li>
+            <li><a href="#zc-rapporten">Mijn rapporten</a></li>
+            <li><a href="#zc-opdrachten">Mijn opdrachten</a></li>
+            <li><a href="#zc-voortgang">Voortgang</a></li>
+            <li><a href="#zc-coaching">Coaching</a></li>
+            <li><a href="#zc-trainingsplan">Trainingsplan</a></li>
+          </ol>
+        </li>
+        <li><a href="#rapporten">3. De rapporten</a>
+          <ol>
+            <li><a href="#rap-samenhang">Hoe ze samenhangen</a></li>
+            <li><a href="#rap-steady">Steady State</a></li>
+            <li><a href="#rap-lang">Interval Lang</a></li>
+            <li><a href="#rap-kort">Interval Kort</a></li>
+            <li><a href="#rap-ergotest">Ergotest</a></li>
+            <li><a href="#rap-overig">Overig</a></li>
+          </ol>
+        </li>
+        <li><a href="#profiel">4. Profiel en progressie</a>
+          <ol>
+            <li><a href="#prof-concept">Wat een profiel is</a></li>
+            <li><a href="#prof-ep">Energetisch profiel</a></li>
+            <li><a href="#prof-uitsluiten">Workout uitsluiten</a></li>
+            <li><a href="#prof-progressie">Progressierapport</a></li>
+            <li><a href="#prof-ouder">Oudere workouts</a></li>
+          </ol>
+        </li>
+        <li><a href="#crewcoach">5. Crewcoach</a>
+          <ol>
+            <li><a href="#cc-waarom">Waarom Crewcoach</a></li>
+            <li><a href="#cc-crew">Crew aanmaken</a></li>
+            <li><a href="#cc-leden">Roeiers toevoegen</a></li>
+            <li><a href="#cc-overzicht">Overzicht</a></li>
+            <li><a href="#cc-ploeg">Ploeg</a></li>
+            <li><a href="#cc-roeier">Coaching per roeier</a></li>
+            <li><a href="#cc-training">Training en opdrachten</a></li>
+            <li><a href="#cc-workouts">Workouts en rapporten</a></li>
+            <li><a href="#cc-boot">Boot</a></li>
+          </ol>
+        </li>
+        <li><a href="#club">6. Clubbeheer</a></li>
+        <li><a href="#account-instellingen">7. Account en instellingen</a>
+          <ol>
+            <li><a href="#abonnement">Abonnement en codes</a></li>
+            <li><a href="#voorkeuren">Voorkeuren</a></li>
+            <li><a href="#telefoon">Op je telefoon</a></li>
+          </ol>
+        </li>
+        <li><a href="#faq">8. Veelgestelde vragen</a></li>
+        <li><a href="#begrippen">9. Begrippen</a></li>
+      </ol>
+    </details>
+  </nav>
+
+  <main>
+
+    <!-- ================================================= -->
+    <!-- OVERZICHT                                          -->
+    <!-- ================================================= -->
+    <section class="chap" id="overzicht">
+      <div class="chap-head">
+        <span class="num">00</span>
+        <h2>Overzicht</h2>
+      </div>
+
+      <!-- Waarom -->
+      <div class="cycle" id="waarom">
+        <p class="eyebrow" style="color:var(--byb)">Waarom Beat Your Best</p>
+        <h3>Jezelf verbeteren, niet je vergelijken met anderen</h3>
+        <p>Je ergometer meet elke haal. Beat Your Best vertelt je wat die halen betekenen: hoe je hebt geroeid, wat er gebeurt als je moe wordt, en waar je nu aan moet werken. Elk oordeel is <b>relatief aan jouw eigen basis</b>. Daarom heet het Beat <i>Your</i> Best.</p>
+        <p>Elke analyse in Beat Your Best volgt dezelfde vier stappen:</p>
+        <div class="steps4">
+          <div><span class="n">1</span><b>Wat doe je als je moe wordt?</b><p>Wat gebeurt er met je haal onder belasting.</p></div>
+          <div><span class="n">2</span><b>Is dat een patroon?</b><p>Herkent Beat Your Best een bekend profiel in je workout.</p></div>
+          <div><span class="n">3</span><b>Wat hoort daarbij?</b><p>Welke keten van gevolgen past bij dat patroon.</p></div>
+          <div><span class="n">4</span><b>Hoe voorkom je het?</b><p>Een concreet aandachtspunt voor je volgende training.</p></div>
+        </div>
+        <p>Het doel achter alles is <b>EWpS</b> (Effective Work per Stroke): het nuttige werk per haal. Een goede workout is een workout waarin je EWpS stabiel blijft of stijgt, ook als je moe wordt.</p>
+      </div>
+      <div class="note">Bron: Stephans 4-stappen-filosofie en EWpS als doelparameter (geheugennotities). Graag de formulering checken; dit is de "waarom" waar de hele handleiding aan ophangt.</div>
+
+      <!-- Kaart -->
+      <div id="kaart" style="display:grid;gap:16px">
+        <h3>De app in één beeld</h3>
+        <p class="lede" style="font-size:16px">Beat Your Best heeft vier hoofdonderdelen. Je vindt ze in de menubalk bovenaan, en op je telefoon in de balk onderin.</p>
+        <div class="map">
+          <div class="area dash">
+            <span class="eyebrow">Startpunt</span>
+            <h3>Dashboard</h3>
+            <p>Je beginscherm. In één oogopslag: hoe gaat het, wat staat er voor je, en hoe gaan je crews.</p>
+            <a href="#dashboard">Lees meer →</a>
+          </div>
+          <div class="area">
+            <span class="eyebrow">Voor jezelf</span>
+            <h3>Zelfcoach</h3>
+            <p>Jouw workouts, rapporten en ontwikkeling. Vier tabbladen:</p>
+            <ul>
+              <li>Overzicht</li>
+              <li>Training</li>
+              <li>Voortgang</li>
+              <li>Coaching</li>
+            </ul>
+            <a href="#zelfcoach">Lees meer →</a>
+          </div>
+          <div class="area coach">
+            <span class="eyebrow">Voor coaches</span>
+            <h3>Crewcoach</h3>
+            <p>Je ploegen: wie traint hoe, wie vraagt aandacht, opdrachten en opstellingen.</p>
+            <a href="#crewcoach">Lees meer →</a>
+          </div>
+          <div class="area acc">
+            <span class="eyebrow">Jij</span>
+            <h3>Profiel</h3>
+            <p>Klik op je avatar rechtsboven. Koppelingen, energetisch profiel, abonnement en voorkeuren.</p>
+            <a href="#account-instellingen">Lees meer →</a>
+          </div>
+        </div>
+        <figure class="ph"><span>Dashboard op desktop met de menubalk (Dashboard · Zelfcoach · Crewcoach · avatar), naast dezelfde app op een telefoon met de balk onderin.</span></figure>
+      </div>
+
+      <!-- Ik wil -->
+      <div id="ik-wil" style="display:grid;gap:16px">
+        <h3>Ik wil…</h3>
+        <div class="want">
+          <div class="want-group">
+            <h3>Starten</h3>
+            <ul>
+              <li><a href="#koppelen">mijn RP3 koppelen <span>Profiel › Gekoppelde diensten</span></a></li>
+              <li><a href="#automatisch">weten waarom ik nog niet al mijn rapporten zie <span>Wat er vanzelf gebeurt</span></a></li>
+              <li><a href="#zc-overzicht">mijn overige workouts sneller laten analyseren <span>Zelfcoach › Overzicht</span></a></li>
+              <li><a href="#prof-ouder">workouts van langer dan een jaar geleden analyseren <span>Zelfcoach › Voortgang › Overzicht</span></a></li>
+            </ul>
+          </div>
+          <div class="want-group">
+            <h3>Begrijpen hoe ik roei</h3>
+            <ul>
+              <li><a href="#zc-rapporten">het volledige rapport van een workout openen <span>Zelfcoach › Training › Mijn rapporten</span></a></li>
+              <li><a href="#rap-samenhang">weten welk rapport bij welke training hoort <span>De rapporten</span></a></li>
+              <li><a href="#zc-coaching">weten waar ik nu aan moet werken <span>Zelfcoach › Coaching</span></a></li>
+              <li><a href="#rap-ergotest">een raceplan voor mijn volgende test <span>Ergotest-rapport › Raceplan</span></a></li>
+            </ul>
+          </div>
+          <div class="want-group">
+            <h3>Mijn ontwikkeling volgen</h3>
+            <ul>
+              <li><a href="#zc-voortgang">zien of ik vooruitga <span>Zelfcoach › Voortgang</span></a></li>
+              <li><a href="#zc-voortgang">twee periodes met elkaar vergelijken <span>Voortgang › Periode</span></a></li>
+              <li><a href="#prof-progressie">een progressierapport maken <span>Profiel › Energetisch profiel</span></a></li>
+              <li><a href="#prof-uitsluiten">een afwijkende workout buiten mijn profiel houden <span>Rapport › Uitsluiten voor profiel</span></a></li>
+            </ul>
+          </div>
+          <div class="want-group">
+            <h3>Als coach</h3>
+            <ul>
+              <li><a href="#cc-crew">een crew aanmaken <span>Crewcoach › Nieuwe crew aanmaken</span></a></li>
+              <li><a href="#cc-leden">roeiers toevoegen vanuit RP3 <span>Crew › Ploeg › Importeer van RP3</span></a></li>
+              <li><a href="#cc-workouts">roeiers zonder BYB-account analyseren <span>Crew › Training › Workouts &amp; rapporten</span></a></li>
+              <li><a href="#cc-training">een opdracht uitzetten en via WhatsApp delen <span>Crew › Training</span></a></li>
+              <li><a href="#cc-boot">de beste opstelling in de boot bepalen <span>Crew › Boot › Opstelling</span></a></li>
+              <li><a href="#cc-ploeg">een tweede coach toevoegen <span>Crew › Ploeg › Coach uitnodigen</span></a></li>
+            </ul>
+          </div>
+          <div class="want-group">
+            <h3>Mijn account</h3>
+            <ul>
+              <li><a href="#abonnement">een code inwisselen <span>Dashboard of Profiel › Abonnement</span></a></li>
+              <li><a href="#abonnement">mijn abonnement opzeggen <span>Profiel › Abonnement</span></a></li>
+              <li><a href="#voorkeuren">minder (of meer) e-mail ontvangen <span>Profiel › Voorkeuren</span></a></li>
+              <li><a href="#telefoon">Beat Your Best als app op mijn telefoon <span>Op je telefoon</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================= -->
+    <!-- 1. AAN DE SLAG                                     -->
+    <!-- ================================================= -->
+    <section class="chap" id="start">
+      <div class="chap-head">
+        <span class="num">01</span>
+        <h2>Aan de slag</h2>
+        <p class="lede">Account aanmaken, je RP3 koppelen, en dan gewoon roeien. De rest gaat vanzelf.</p>
+      </div>
+
+      <article class="feat" id="account">
+        <div class="feat-head">
+          <div class="tags"><span class="tag rower">Roeier</span><span class="tag coach">Coach</span></div>
+          <h3>Account en proefmaand</h3>
+          <p class="where"><b>my.beatyourbest.org</b> › Registreren</p>
+        </div>
+        <div class="wwh">
+          <div class="why"><h4>Waarom</h4><p>Beat Your Best vergelijkt je met jezelf. Je lengte, gewichtsklasse en trainingsniveau helpen om je streefwaarden goed in te schatten.</p></div>
+          <div class="what"><h4>Wat kun je ermee</h4><p>Met een nieuw account krijg je automatisch <b>één maand gratis</b> alle functies van een roeiersabonnement. Je hoeft geen betaalgegevens in te vullen. Doe je daarna niets, dan stopt het vanzelf.</p></div>
+          <div class="how"><h4>Hoe</h4>
+            <ol>
+              <li>Ga naar <a href="https://my.beatyourbest.org/register">my.beatyourbest.org/register</a>.</li>
+              <li>Registreer met je e-mailadres, of log in met Google of Strava.</li>
+              <li>Vul je gegevens in en bevestig je e-mailadres via de link in je mailbox.</li>
+              <li>Heb je een code gekregen? Die wissel je in op je dashboard of bij <a href="#abonnement">Abonnement</a>.</li>
+            </ol>
+          </div>
+        </div>
+        <p class="tip">Inloggen met Strava is alleen een manier van inloggen. Beat Your Best haalt geen workouts uit Strava.</p>
+        <figure class="ph"><span>Registratiescherm met de knoppen voor Google en Strava.</span></figure>
+      </article>
+
+      <article class="feat" id="koppelen">
+        <div class="feat-head">
+          <div class="tags"><span class="tag rower">Roeier</span></div>
+          <h3>Je RP3 koppelen</h3>
+          <p class="where">Profiel › <b>Gekoppelde diensten</b> › RP3</p>
+        </div>
+        <div class="wwh">
+          <div class="why"><h4>Waarom</h4><p>Je RP3 legt van elke haal de volledige krachtcurve vast. Dat is de data waar Beat Your Best mee werkt. Na het koppelen haalt Beat Your Best je workouts zelf op; je hoeft nooit iets te uploaden.</p></div>
+          <div class="what"><h4>Wat kun je ermee</h4><p>Eén keer koppelen, en daarna komt elke RP3-workout automatisch binnen en wordt hij geanalyseerd.</p></div>
+          <div class="how"><h4>Hoe</h4>
+            <ol>
+              <li>Klik rechtsboven op je avatar (op je telefoon: <b>Account</b> onderin).</li>
+              <li>Ga naar <b>Gekoppelde diensten</b> en kies <b>RP3 koppelen</b>.</li>
+              <li>Log in met je RP3-account en geef toestemming.</li>
+              <li>Je komt terug op je dashboard, en je eerste rapport staat er al.</li>
+            </ol>
+            <p style="margin-top:8px">Heb je nog niets gekoppeld, dan zie je in Zelfcoach ook een kaart <b>Databron koppelen</b>.</p>
+          </div>
+        </div>
+        <p class="tip">Na het roeien moet je workout eerst van je ergometer naar de RP3-cloud. Open de RP3-app en wacht tot alles is geüpload. Daarna pikt Beat Your Best hem op.</p>
+        <figure class="ph"><span>Profielpagina met het blok Gekoppelde diensten, RP3 gekoppeld.</span></figure>
+        <div class="note">Concept2 laat ik bewust weg: koppelen kan, maar C2-workouts verschijnen nu niet in Zelfcoach (ontbrekende module in de code) en de C2-ondersteuning hangt van een admin-instelling af. Voorstel: in de FAQ één zin "Concept2 is in ontwikkeling".</div>
+      </article>
+
+      <article class="feat" id="automatisch">
+        <div class="feat-head">
+          <div class="tags"><span class="tag rower">Roeier</span></div>
+          <h3>Wat er vanzelf gebeurt</h3>
+          <p class="where">Geen knop nodig</p>
+        </div>
+        <div class="wwh">
+          <div class="why"><h4>Waarom</h4><p>Net als bij een sporthorloge: je traint, en de analyse staat klaar. Je hoeft alleen te klikken als je méér wilt weten.</p></div>
+          <div class="what"><h4>Wat er gebeurt</h4>
+            <ul>
+              <li><b>Direct na het koppelen</b> wordt je nieuwste workout meteen geanalyseerd.</li>
+              <li><b>Op de achtergrond</b> volgen je workouts van het afgelopen jaar, in porties. Zo bouwt Beat Your Best je profiel op.</li>
+              <li><b>Elke keer dat je inlogt</b> kijkt Beat Your Best of er nieuwe workouts zijn, en analyseert ze.</li>
+              <li><b>Het type rapport</b> kiest Beat Your Best zelf: Steady State, Interval Lang, Interval Kort of Ergotest. Zie <a href="#rapporten">De rapporten</a>.</li>
+              <li><b>Heel korte workouts</b> worden overgeslagen, omdat er te weinig halen in zitten voor een betrouwbare analyse.</li>
+            </ul>
+          </div>
+          <div class="how"><h4>Hoe</h4><p>Gewoon roeien. Wil je niet wachten tot alles van het afgelopen jaar binnen is? Gebruik dan <b>Analyseer mijn overige workouts</b> op <a href="#zc-overzicht">Zelfcoach › Overzicht</a>.</p></div>
+        </div>
+      </article>
+
+      <article class="feat" id="dashboard">
+        <div class="feat-head">
+          <div class="tags"><span class="tag rower">Roeier</span><span class="tag coach">Coach</span></div>
+          <h3>Het dashboard</h3>
+          <p class="where"><b>Dashboard</b></p>
+        </div>
+        <div class="wwh">
+          <div class="why"><h4>Waarom</h4><p>Het eerste scherm na het inloggen beantwoordt drie vragen, zodat je niet hoeft te zoeken.</p></div>
+          <div class="what"><h4>Wat zie je</h4>
+            <ul>
+              <li><b>Hoe gaat het met jou?</b> Je profiel; doorklikken gaat naar Coaching.</li>
+              <li><b>Wat staat er voor je?</b> Je volgende opdracht, als je in een crew zit.</li>
+              <li><b>Hoe gaan je crews?</b> Alleen voor coaches; doorklikken gaat naar Crewcoach.</li>
+              <li>Uitnodigingen van een coach, die je hier accepteert of afwijst.</li>
+              <li>Meldingen over je abonnement, en een vak om een code in te vullen.</li>
+            </ul>
+          </div>
+          <div class="how"><h4>Hoe</h4><p>Klik op een kaart om naar het onderdeel te gaan dat erbij hoort.</p></div>
+        </div>
+        <figure class="ph"><span>Dashboard met de drie kaarten "Hoe gaat het met jou?", "Wat staat er voor je?" en "Hoe gaan je crews?".</span></figure>
+      </article>
+    </section>
+
+    <!-- ================================================= -->
+    <!-- 2. ZELFCOACH                                       -->
+    <!-- ================================================= -->
+    <section class="chap" id="zelfcoach">
+      <div class="chap-head">
+        <span class="num">02</span>
+        <h2>Zelfcoach</h2>
+        <p class="lede">Je persoonlijke coach. Iedereen met een account heeft Zelfcoach; voor de diepere onderdelen heb je een abonnement nodig. Zelfcoach heeft vier tabbladen: Overzicht, Training, Voortgang en Coaching.</p>
+      </div>
+      <figure class="ph"><span>Zelfcoach met de vier tabbladen Overzicht · Training · Voortgang · Coaching.</span></figure>
+
+      <article class="feat" id="zc-overzicht">
+        <div class="feat-head">
+          <div class="tags"><span class="tag rower">Roeier</span></div>
+          <h3>Overzicht</h3>
+          <p class="where">Zelfcoach › <b>Overzicht</b></p>
+        </div>
+        <div class="wwh">
+          <div class="why"><h4>Waarom</h4><p>Eén scherm dat laat zien waar je staat, zonder dat je rapporten hoeft te openen.</p></div>
+          <div class="what"><h4>Wat zie je</h4>
+            <ul>
+              <li><b>Hoe doe je het?</b> Het profiel dat het vaakst terugkomt in je recente workouts, hoe vaak je per week traint, en je energetisch profiel ten opzichte van je streefwaarden.</li>
+              <li><b>Wat staat er voor je?</b> Je volgende opdracht.</li>
+              <li><b>Waar ga je heen?</b> Je voortgang.</li>
+              <li><b>Laatste activiteit:</b> je recente workouts.</li>
+            </ul>
+          </div>
+          <div class="how"><h4>Hoe</h4><p>Wil je dat Beat Your Best sneller door je oudere workouts gaat? Klik op <b>Analyseer mijn overige workouts</b>. Er worden dan steeds tien workouts tegelijk geanalyseerd, tot alles van het afgelopen jaar klaar is.</p></div>
+        </div>
+        <figure class="ph"><span>Zelfcoach Overzicht met de drie kaarten en de knop "Analyseer mijn overige workouts".</span></figure>
+      </article>
+
+      <article class="feat" id="zc-workouts">
+        <div class="feat-head">
+          <div class="tags"><span class="tag rower">Roeier</span></div>
+          <h3>Mijn workouts</h3>
+          <p class="where">Zelfcoach › Training › <b>Mijn workouts</b></p>
+        </div>
+        <div class="wwh">
+          <div class="why"><h4>Waarom</h4><p>Hier zie je al je RP3-workouts van het afgelopen jaar, ook de workouts die (nog) geen rapport hebben.</p></div>
+          <div class="what"><h4>Wat kun je ermee</h4>
+            <ul>
+              <li>Filteren op type: Steady State, Interval Lang, Interval Kort, Ergotest of Overig.</li>
+              <li>Een workout die nog niet geanalyseerd is meteen laten analyseren.</li>
+              <li>Van een workout direct naar het rapport gaan.</li>
+            </ul>
+          </div>
+          <div class="how"><h4>Hoe</h4><p>Klik bij een workout op <b>Analyseer</b> om een rapport te maken, of op <b>Bekijk</b> als er al een rapport is.</p></div>
+        </div>
+        <figure class="ph"><span>Lijst Mijn workouts met de typefilter bovenaan en de knoppen Analyseer en Bekijk.</span></figure>
+      </article>
+
+      <article class="feat" id="zc-rapporten">
+        <div class="feat-head">
+          <div class="tags"><span class="tag rower">Roeier</span><span class="tag sub">Volledig rapport: abonnement</span></div>
+          <h3>Mijn rapporten</h3>
+          <p class="where">Zelfcoach › Training › <b>Mijn rapporten</b></p>
+        </div>
+        <div class="wwh">
+          <div class="why"><h4>Waarom</h4><p>Elk rapport is een momentopname van één workout. Samen laten ze zien hoe je je ontwikkelt.</p></div>
+          <div class="what"><h4>Wat kun je ermee</h4>
+            <ul>
+              <li>Per rapport een korte samenvatting, met een minigrafiek van je EWpS-trend.</li>
+              <li>Rapporten gegroepeerd per type bekijken, of op datum.</li>
+              <li>Het <b>volledige rapport</b> openen (met abonnement). Zonder abonnement zie je de samenvatting.</li>
+              <li>Een rapport verwijderen.</li>
+            </ul>
+          </div>
+          <div class="how"><h4>Hoe</h4><p>Klik op <b>Volledig rapport</b>. Wat je daar ziet, lees je per type in <a href="#rapporten">De rapporten</a>.</p></div>
+        </div>
+        <figure class="ph"><span>Rapportkaart met samenvatting, EWpS-minigrafiek en de knop Volledig rapport.</span></figure>
+      </article>
+
+      <article class="feat" id="zc-opdrachten">
+        <div class="feat-head">
+          <div class="tags"><span class="tag rower">Roeier in een crew</span><span class="tag sub">Abonnement</span></div>
+          <h3>Mijn opdrachten</h3>
+          <p class="where">Zelfcoach › Training › <b>Mijn opdrachten</b></p>
+        </div>
+        <div class="wwh">
+          <div class="why"><h4>Waarom</h4><p>Je coach zet trainingen voor je klaar. Zo weet je wat er van je verwacht wordt, en ziet je coach wat je gedaan hebt.</p></div>
+          <div class="what"><h4>Wat kun je ermee</h4>
+            <ul>
+              <li>Je opdrachten zien, verdeeld in Open, Voltooid en Verlopen.</li>
+              <li>Filteren per crew, als je in meerdere crews zit.</li>
+              <li>Beat Your Best koppelt je workouts zelf aan je opdrachten. Lukt dat niet, dan koppel je een workout zelf.</li>
+            </ul>
+          </div>
+          <div class="how"><h4>Hoe</h4><p>Open een opdracht en klik op <b>Workout koppelen</b>, of markeer hem als gedaan. Dit tabblad verschijnt alleen als je in een crew van een coach zit.</p></div>
+        </div>
+        <figure class="ph"><span>Opdrachtenlijst met Open / Voltooid / Verlopen, en een geopende opdracht met "Workout koppelen".</span></figure>
+      </article>
+
+      <article class="feat" id="zc-voortgang">
+        <div class="feat-head">
+          <div class="tags"><span class="tag rower">Roeier</span><span class="tag sub">Behalve Overzicht: abonnement</span></div>
+          <h3>Voortgang</h3>
+          <p class="where">Zelfcoach › <b>Voortgang</b></p>
+        </div>
+        <div class="wwh">
+          <div class="why"><h4>Waarom</h4><p>Eén workout zegt weinig; de trend over meerdere workouts zegt veel. Hier zie je of je training effect heeft.</p></div>
+          <div class="what"><h4>Wat kun je ermee</h4>
+            <ul>
+              <li><b>Overzicht:</b> hoe je je over de afgelopen periode hebt ontwikkeld (gratis).</li>
+              <li><b>1-op-1:</b> twee momentopnames van je energetisch profiel naast elkaar.</li>
+              <li><b>Periode:</b> twee periodes met elkaar vergelijken, bijvoorbeeld voor en na een trainingsblok.</li>
+              <li><b>Steady State, Interval Workout, High Intensity, Ergo Test:</b> de trend per type training.</li>
+            </ul>
+          </div>
+          <div class="how"><h4>Hoe</h4><p>Kies bovenaan een subtabblad. Met de filters kun je inzoomen op een intensiteitszone (LO, MED, HI), een minimaal vermogen of een datumbereik.</p></div>
+        </div>
+        <figure class="ph"><span>Voortgang met de subtabbladen en een trendgrafiek voor Steady State.</span></figure>
+      </article>
+
+      <article class="feat" id="zc-coaching">
+        <div class="feat-head">
+          <div class="tags"><span class="tag rower">Roeier</span><span class="tag sub">Behalve profielpad: abonnement</span></div>
+          <h3>Coaching</h3>
+          <p class="where">Zelfcoach › <b>Coaching</b></p>
+        </div>
+        <div class="wwh">
+          <div class="why"><h4>Waarom</h4><p>Hier komt alles samen in één vraag: waar moet ik nu aan werken?</p></div>
+          <div class="what"><h4>Wat zie je</h4>
+            <ul>
+              <li><b>Profielpad:</b> welke profielen je workouts laten zien, en welke richting je op kunt.</li>
+              <li><b>Kwaliteit-Vermoeidheidspatroon:</b> wat er met de kwaliteit van je haal gebeurt als je moe wordt.</li>
+              <li><b>Jouw focus komende periode:</b> het belangrijkste aandachtspunt.</li>
+              <li><b>Progressie:</b> per type training, met doorklik naar Voortgang.</li>
+              <li><b>Advies</b> voor je training.</li>
+              <li><b>Raceplan:</b> een plan per afstand (standaard 2000 m).</li>
+            </ul>
+          </div>
+          <div class="how"><h4>Hoe</h4><p>Lees van boven naar beneden. Kies bij Raceplan de afstand waarvoor je een plan wilt.</p></div>
+        </div>
+        <figure class="ph"><span>Coaching-tab met het profielpad en het blok "Jouw focus komende periode".</span></figure>
+      </article>
+
+      <article class="feat" id="zc-trainingsplan">
+        <div class="feat-head">
+          <div class="tags"><span class="tag rower">Roeier</span><span class="tag sub">Abonnement</span></div>
+          <h3>Trainingsplan</h3>
+          <p class="where">Zelfcoach › Training › <b>Trainingsplan</b></p>
+        </div>
+        <div class="wwh">
+          <div class="why"><h4>Waarom</h4><p>Beat Your Best gaat uit van gepolariseerd trainen: veel rustig, een klein deel hard. Hier zie je of jouw training die verdeling heeft.</p></div>
+          <div class="what"><h4>Wat kun je ermee</h4>
+            <ul>
+              <li><b>Jouw trainingspatroon:</b> de verdeling over LO, MED en HI in de afgelopen twaalf weken, met advies.</li>
+              <li>Uitleg: wat is gepolariseerd trainen?</li>
+              <li>Andere sporten toevoegen die je naast het roeien doet.</li>
+              <li><b>Mijn doelen:</b> persoonlijke doelen vastleggen en bijhouden.</li>
+            </ul>
+          </div>
+          <div class="how"><h4>Hoe</h4><p>Open het tabblad Trainingsplan onder Training.</p></div>
+        </div>
+        <figure class="ph"><span>Trainingsplan met de LO/MED/HI-verdeling over twaalf weken.</span></figure>
+        <div class="note">Deze pagina werkt, maar er staat in de app nergens een link naar (alleen bereikbaar via /self-coach/trainingsplan). Eerst een tabblad toevoegen, of dit onderdeel uit de handleiding halen?</div>
+      </article>
+    </section>
+
+    <!-- ================================================= -->
+    <!-- 3. DE RAPPORTEN                                    -->
+    <!-- ================================================= -->
+    <section class="chap" id="rapporten">
+      <div class="chap-head">
+        <span class="num">03</span>
+        <h2>De rapporten</h2>
+        <p class="lede">Elke workout krijgt een rapport dat past bij het type training. De rapporten staan niet los van elkaar: samen volgen ze een trainingscyclus.</p>
+      </div>
+
+      <div class="feat" id="rap-samenhang">
+        <h3>Hoe de rapporten samenhangen</h3>
+        <p style="color:var(--ink-2)">Ongeveer 80% van je training is rustig en duurzaam. Daarin train je de kwaliteit van je haal. De overige 20% is harder: lange en korte intervallen. Alles werkt toe naar een test of wedstrijd.</p>
+        <div class="bar8020" aria-label="80% rustig, 20% intensief"><span class="lo">80% STEADY STATE</span><span class="hi">20% INTERVAL</span></div>
+        <div class="types">
+          <div><span class="z">Laag · LO</span><b>Steady State</b><p>Meet de kwaliteit van je haal en herkent je profiel. De basis voor de andere rapporten.</p></div>
+          <div><span class="z">Midden · MED</span><b>Interval Lang</b><p>Een vergrootglas: wordt wat je in Steady State laat zien hier uitvergroot?</p></div>
+          <div><span class="z">Hoog · HI</span><b>Interval Kort</b><p>Rekt je plafond op, en laat zien wat het eerst inzakt.</p></div>
+          <div><span class="z">Test</span><b>Ergotest</b><p>Bevestigt je raceplan en levert het volgende raceplan op.</p></div>
+        </div>
+        <p class="tip">Begin met Steady State. Interval Lang en Interval Kort vergelijken met je Steady State-basis; zonder die basis zeggen ze minder.</p>
+        <div class="note">Bron: Stephans rapportfilosofie R1→R4 en de gepolariseerde regelset (geheugennotities). Graag formulering checken.</div>
+      </div>
+
+      <article class="feat" id="rap-steady">
+        <div class="feat-head">
+          <div class="tags"><span class="tag rower">Roeier</span><span class="tag sub">Volledig rapport: abonnement</span></div>
+          <h3>Steady State</h3>
+          <p class="where">Voor rustige duurtrainingen, bijvoorbeeld 30 tot 60 minuten UT2</p>
+        </div>
+        <div class="wwh">
+          <div class="why"><h4>Waarom</h4><p>In rustige training kun je je haal het best trainen. Dit rapport laat zien hoe je haal eruitziet, en wat er gebeurt als je moe wordt.</p></div>
+          <div class="what"><h4>Wat zie je</h4>
+            <ul>
+              <li><b>Kerncijfers</b> van de workout.</li>
+              <li><b>Jouw profiel</b> in deze workout, met je IOF-score.</li>
+              <li><b>Jouw focus:</b> een primair en een secundair aandachtspunt.</li>
+              <li><b>Streefwaarden-check:</b> je waarden ten opzichte van je streefwaarden.</li>
+              <li>Tabbladen: <b>Kwaliteit Trends</b>, <b>Energetisch Profiel</b>, <b>Vermoeidheid Analyse</b>, <b>Consistentie</b> (met de Consistency Challenge) en <b>Force Curve Analyse</b>.</li>
+            </ul>
+          </div>
+          <div class="how"><h4>Hoe</h4><p>Begin bovenaan bij je profiel en je focus; dat is de samenvatting. De tabbladen zijn er als je wilt weten waaróm. Achter elk <b>i</b>-icoon staat uitleg.</p></div>
+        </div>
+        <figure class="ph"><span>Steady State-rapport: kopblok met profiel, IOF en focus.</span></figure>
+        <figure class="ph"><span>Force Curve Analyse: je gemiddelde haal, je beste halen en de referentiecurve.</span></figure>
+      </article>
+
+      <article class="feat" id="rap-lang">
+        <div class="feat-head">
+          <div class="tags"><span class="tag rower">Roeier</span><span class="tag sub">Volledig rapport: abonnement</span></div>
+          <h3>Interval Lang</h3>
+          <p class="where">Voor langere intervallen, bijvoorbeeld 3×10 of 4×12 minuten</p>
+        </div>
+        <div class="wwh">
+          <div class="why"><h4>Waarom</h4><p>Bij een hogere intensiteit wordt zichtbaar wat in rustige training nog verborgen blijft. Dit rapport vergelijkt elk werkblok met je Steady State-basis.</p></div>
+          <div class="what"><h4>Wat zie je</h4>
+            <ul>
+              <li>De opzet van de workout en een tabel met je werkblokken.</li>
+              <li><b>Streefwaarden</b> bij dit niveau.</li>
+              <li><b>Vergrootglas:</b> Interval Lang naast Steady State, per parameter.</li>
+              <li>Welke basis is gebruikt voor de vergelijking.</li>
+              <li>Tabbladen: <b>Werkblokken</b>, <b>Verval tussen blokken</b>, <b>Tempo &amp; Pacing</b>, <b>Plafond-projectie</b> en <b>Force Curve</b>.</li>
+              <li>Afsluitend: <b>Volgende workout: wat neem je mee?</b></li>
+            </ul>
+          </div>
+          <div class="how"><h4>Hoe</h4><p>Kijk vooral naar het Vergrootglas: welke parameter verandert het meest ten opzichte van je Steady State?</p></div>
+        </div>
+        <figure class="ph"><span>Interval Lang: het Vergrootglas met Interval Lang naast Steady State.</span></figure>
+      </article>
+
+      <article class="feat" id="rap-kort">
+        <div class="feat-head">
+          <div class="tags"><span class="tag rower">Roeier</span><span class="tag sub">Volledig rapport: abonnement</span></div>
+          <h3>Interval Kort</h3>
+          <p class="where">Voor korte, intensieve intervallen, bijvoorbeeld 8× 30/30 seconden</p>
+        </div>
+        <div class="wwh">
+          <div class="why"><h4>Waarom</h4><p>Korte intervallen rekken je plafond op. Dit rapport laat zien hoe hoog dat plafond is, en welk onderdeel van je haal als eerste inzakt.</p></div>
+          <div class="what"><h4>Wat zie je</h4>
+            <ul>
+              <li>De opzet van de workout, en welke halen meetellen.</li>
+              <li><b>Jouw vermogensplafond</b>, en hoeveel van je energie per haal je vasthoudt.</li>
+              <li>Welke basis is gebruikt voor de vergelijking.</li>
+              <li>Tabbladen: <b>Werkblokken</b>, <b>Verval tussen blokken</b>, <b>Tempo &amp; Pacing</b> en <b>Force Curve</b>.</li>
+              <li>Afsluitend: <b>Wat zegt dit voor je training?</b></li>
+            </ul>
+          </div>
+          <div class="how"><h4>Hoe</h4><p>Vergelijk het plafond met eerdere Interval Kort-workouts via <a href="#zc-voortgang">Voortgang › High Intensity</a>.</p></div>
+        </div>
+        <figure class="ph"><span>Interval Kort: het blok Jouw vermogensplafond.</span></figure>
+      </article>
+
+      <article class="feat" id="rap-ergotest">
+        <div class="feat-head">
+          <div class="tags"><span class="tag rower">Roeier</span><span class="tag sub">Volledig rapport: abonnement</span></div>
+          <h3>Ergotest</h3>
+          <p class="where">Voor een test op volle kracht, bijvoorbeeld 2000 m</p>
+        </div>
+        <div class="wwh">
+          <div class="why"><h4>Waarom</h4><p>Een test laat zien of je voorbereiding heeft gewerkt. Dit rapport kijkt of je je raceplan hebt uitgevoerd, en maakt het plan voor je volgende test.</p></div>
+          <div class="what"><h4>Wat zie je</h4>
+            <ul>
+              <li>Een oordeel over de test, en je <b>testresultaat</b>.</li>
+              <li>Je splits, met een meter voor je pacing.</li>
+              <li><b>Jouw focus uit deze test.</b></li>
+              <li>Tabbladen: <b>Raceplan</b> (met streefwaarden voor je volgende test), <b>Pacing details</b>, <b>Part details</b>, <b>Opvallende punten</b> en <b>Mentaal</b>.</li>
+            </ul>
+          </div>
+          <div class="how"><h4>Hoe</h4><p>Open het tabblad Raceplan en kies de afstand van je volgende test.</p></div>
+        </div>
+        <figure class="ph"><span>Ergotest: tabblad Raceplan met de afstandskeuze.</span></figure>
+      </article>
+
+      <article class="feat" id="rap-overig">
+        <div class="feat-head">
+          <div class="tags"><span class="tag rower">Roeier</span></div>
+          <h3>Overig</h3>
+          <p class="where">Voor workouts die er als interval uitzien, maar geen echte werkblokken hebben</p>
+        </div>
+        <div class="wwh">
+          <div class="what"><h4>Wat zie je</h4><p>Een eenvoudig rapport. Deze workouts tellen niet mee voor je profiel.</p></div>
+        </div>
+        <div class="note">Klopt "tellen niet mee voor je profiel"? Graag bevestigen.</div>
+      </article>
+    </section>
+
+    <!-- ================================================= -->
+    <!-- 4. PROFIEL EN PROGRESSIE                           -->
+    <!-- ================================================= -->
+    <section class="chap" id="profiel">
+      <div class="chap-head">
+        <span class="num">04</span>
+        <h2>Profiel en progressie</h2>
+        <p class="lede">Hoe Beat Your Best je roeien typeert, en hoe je ziet of je beter wordt.</p>
+      </div>
+
+      <article class="feat" id="prof-concept">
+        <div class="feat-head">
+          <h3>Wat een profiel is (en wat niet)</h3>
+        </div>
+        <div class="wwh">
+          <div class="why"><h4>Waarom</h4><p>Een profiel is een <b>waarneming over één workout</b>, geen label voor jou als roeier. Het beschrijft het patroon dat je in die workout liet zien. Verschillende workouts kunnen verschillende profielen opleveren; dat is normaal en geen achteruitgang.</p></div>
+          <div class="what"><h4>De profielen</h4>
+            <div class="todo-text">Korte omschrijving van de zeven profielen (KV, FC, TA, BA, ME, SA, KR) en het profielpad, uit de coach-content-admin. De huidige FAQ-teksten hierover zijn verouderd (o.a. SA en IOF) en neem ik daarom niet over.</div>
+          </div>
+          <div class="how"><h4>Hoe</h4><p>Kijk naar het profiel dat het vaakst terugkomt in je recente workouts (Zelfcoach › Overzicht), niet naar één losse workout.</p></div>
+        </div>
+      </article>
+
+      <article class="feat" id="prof-ep">
+        <div class="feat-head">
+          <div class="tags"><span class="tag rower">Roeier</span></div>
+          <h3>Energetisch profiel en momentopnames</h3>
+          <p class="where">Profiel › Snelle links › <b>Energetisch profiel</b></p>
+        </div>
+        <div class="wwh">
+          <div class="why"><h4>Waarom</h4><p>Je energetisch profiel laat zien hoeveel energie je per haal levert, bij lage (LO), middelhoge (MED) en hoge (HI) intensiteit. Elke geanalyseerde workout voegt een momentopname toe.</p></div>
+          <div class="what"><h4>Wat kun je ermee</h4>
+            <ul>
+              <li>Al je momentopnames per zone in een tabel.</li>
+              <li>Een workout uit je profiel halen, of er weer in opnemen.</li>
+              <li>Een <a href="#prof-progressie">progressierapport</a> maken.</li>
+            </ul>
+          </div>
+          <div class="how"><h4>Hoe</h4><p>Klik op je avatar, en bij Snelle links op <b>Energetisch profiel</b>. Je komt er ook via Voortgang › 1-op-1.</p></div>
+        </div>
+        <figure class="ph"><span>Tabel met energetisch-profiel-momentopnames per zone.</span></figure>
+      </article>
+
+      <article class="feat" id="prof-uitsluiten">
+        <div class="feat-head">
+          <div class="tags"><span class="tag rower">Roeier</span></div>
+          <h3>Een workout uitsluiten voor je profiel</h3>
+          <p class="where">Steady State-rapport › <b>Uitsluiten voor profiel</b> · of Energetisch profiel</p>
+        </div>
+        <div class="wwh">
+          <div class="why"><h4>Waarom</h4><p>Soms past een workout niet: je was ziek, je testte iets uit, of je roeide samen met iemand anders op je account. Zo'n workout zou je profiel en streefwaarden scheef trekken.</p></div>
+          <div class="what"><h4>Wat kun je ermee</h4><p>De workout blijft bestaan, met rapport, maar telt niet mee voor je profiel.</p></div>
+          <div class="how"><h4>Hoe</h4><p>Zet in de kop van het Steady State-rapport de schakelaar <b>Uitsluiten voor profiel</b> aan. Of doe het in de tabel bij Energetisch profiel.</p></div>
+        </div>
+        <figure class="ph"><span>Kop van het Steady State-rapport met de schakelaar "Uitsluiten voor profiel".</span></figure>
+      </article>
+
+      <article class="feat" id="prof-progressie">
+        <div class="feat-head">
+          <div class="tags"><span class="tag rower">Roeier</span><span class="tag sub">Abonnement</span></div>
+          <h3>Progressierapport</h3>
+          <p class="where">Profiel › Energetisch profiel › <b>Progressie rapport</b></p>
+        </div>
+        <div class="wwh">
+          <div class="why"><h4>Waarom</h4><p>Om na een trainingsblok vast te leggen wat het heeft opgeleverd, in één rapport dat je kunt printen of met je coach kunt bespreken.</p></div>
+          <div class="what"><h4>Wat kun je ermee</h4>
+            <ul>
+              <li><b>Vergelijken:</b> twee momentopnames naast elkaar, met de tabbladen Kwaliteit, Profiel en Patronen.</li>
+              <li><b>Trend:</b> je ontwikkeling over een periode, met de tabbladen Trends, Training en Details.</li>
+              <li>Het rapport printen.</li>
+            </ul>
+          </div>
+          <div class="how"><h4>Hoe</h4><ol><li>Ga naar Profiel › Energetisch profiel.</li><li>Klik op <b>Progressie rapport</b>.</li><li>Kies de momentopnames of de periode, controleer en maak het rapport aan.</li></ol></div>
+        </div>
+        <figure class="ph"><span>Progressierapport, tabblad Trends.</span></figure>
+        <div class="note">Dit rapport is lastig te vinden: alleen via Profiel › Energetisch profiel. Overwegen om een knop op Voortgang te zetten?</div>
+      </article>
+
+      <article class="feat" id="prof-ouder">
+        <div class="feat-head">
+          <div class="tags"><span class="tag rower">Roeier</span></div>
+          <h3>Workouts van langer dan een jaar geleden</h3>
+          <p class="where">Zelfcoach › Voortgang › <b>Overzicht</b></p>
+        </div>
+        <div class="wwh">
+          <div class="why"><h4>Waarom</h4><p>Standaard kijkt Beat Your Best een jaar terug. Wil je je ontwikkeling over meerdere seizoenen zien, dan kun je verder terug.</p></div>
+          <div class="how"><h4>Hoe</h4><p>Gebruik onderaan Voortgang › Overzicht het formulier om oudere workouts te analyseren. Dat gaat per half jaar.</p></div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ================================================= -->
+    <!-- 5. CREWCOACH                                       -->
+    <!-- ================================================= -->
+    <section class="chap" id="crewcoach">
+      <div class="chap-head">
+        <span class="num">05</span>
+        <h2>Crewcoach</h2>
+        <p class="lede">Voor coaches van één of meer ploegen. Je ziet de analyses van al je roeiers bij elkaar, zet opdrachten uit en stelt de boot samen. Crewcoach verschijnt in het menu als je een coachabonnement hebt.</p>
+      </div>
+
+      <article class="feat" id="cc-waarom">
+        <div class="feat-head">
+          <div class="tags"><span class="tag coach">Coach</span><span class="tag sub">Coachabonnement</span></div>
+          <h3>Waarom Crewcoach</h3>
+        </div>
+        <div class="wwh">
+          <div class="why"><h4>Waarom</h4><p>De rapporten van je roeiers worden automatisch gemaakt. Crewcoach zet ze naast elkaar, zodat je ziet waar de ploeg staat, hoe ze traint en wie aandacht nodig heeft, zonder elk rapport te hoeven openen.</p></div>
+          <div class="what"><h4>Wat kun je ermee</h4>
+            <ul>
+              <li>Je crews in één overzicht, met markeringen waar aandacht nodig is.</li>
+              <li>Per crew vier tabbladen: <b>Overzicht</b>, <b>Ploeg</b>, <b>Training</b> en <b>Boot</b>.</li>
+              <li>Gearchiveerde crews terugzetten.</li>
+            </ul>
+          </div>
+        </div>
+        <figure class="ph"><span>Crewcoach-dashboard met crewkaarten en aandachtsmarkeringen.</span></figure>
+      </article>
+
+      <article class="feat" id="cc-crew">
+        <div class="feat-head">
+          <div class="tags"><span class="tag coach">Coach</span></div>
+          <h3>Een crew aanmaken</h3>
+          <p class="where">Crewcoach › <b>Nieuwe crew aanmaken</b></p>
+        </div>
+        <div class="wwh">
+          <div class="how"><h4>Hoe</h4><ol><li>Ga naar Crewcoach en klik op <b>Nieuwe crew aanmaken</b>.</li><li>Geef de crew een naam en sla op.</li><li>Voeg roeiers toe (zie hieronder).</li></ol></div>
+        </div>
+      </article>
+
+      <article class="feat" id="cc-leden">
+        <div class="feat-head">
+          <div class="tags"><span class="tag coach">Coach</span></div>
+          <h3>Roeiers toevoegen</h3>
+          <p class="where">Crew › Ploeg › <b>Importeer van RP3</b> · <b>C2 roeier toevoegen</b></p>
+        </div>
+        <div class="wwh">
+          <div class="why"><h4>Waarom</h4><p>Hoe meer roeiers in je crew, hoe beter je ploeg te vergelijken is. Roeiers met een eigen Beat Your Best-account worden automatisch geanalyseerd.</p></div>
+          <div class="what"><h4>Wat kun je ermee</h4>
+            <ul>
+              <li><b>Importeer van RP3:</b> haal de leden van je RP3-crew in één keer binnen.</li>
+              <li><b>C2 roeier toevoegen:</b> voeg een roeier handmatig toe.</li>
+              <li>Roeiers die je toevoegt krijgen een uitnodiging, die ze op hun dashboard accepteren.</li>
+            </ul>
+          </div>
+          <div class="how"><h4>Hoe</h4><p>Open je crew, ga naar het tabblad <b>Ploeg</b> en kies een van de twee knoppen.</p></div>
+        </div>
+        <figure class="ph"><span>Tabblad Ploeg met de knoppen "Importeer van RP3" en "C2 roeier toevoegen".</span></figure>
+        <div class="note">Graag checken: krijgt een roeier die je via RP3 importeert altijd een uitnodiging, of alleen als hij al een BYB-account heeft?</div>
+      </article>
+
+      <article class="feat" id="cc-overzicht">
+        <div class="feat-head">
+          <div class="tags"><span class="tag coach">Coach</span></div>
+          <h3>Overzicht</h3>
+          <p class="where">Crew › <b>Overzicht</b></p>
+        </div>
+        <div class="wwh">
+          <div class="what"><h4>Wat zie je</h4>
+            <ul>
+              <li><b>Waar staat de ploeg?</b></li>
+              <li><b>Hoe traint de ploeg?</b></li>
+              <li><b>Wie vraagt aandacht?</b></li>
+              <li>De laatste rapporten van de crew, en snelle acties.</li>
+            </ul>
+          </div>
+          <div class="how"><h4>Hoe</h4><p>Begin hier na elk trainingsweekend. Klik door op een roeier die aandacht vraagt.</p></div>
+        </div>
+        <figure class="ph"><span>Crew-overzicht met de drie vragen.</span></figure>
+      </article>
+
+      <article class="feat" id="cc-ploeg">
+        <div class="feat-head">
+          <div class="tags"><span class="tag coach">Coach</span></div>
+          <h3>Ploeg</h3>
+          <p class="where">Crew › <b>Ploeg</b></p>
+        </div>
+        <div class="wwh">
+          <div class="why"><h4>Waarom</h4><p>Hier vergelijk je je roeiers met elkaar en zie je patronen in de hele ploeg.</p></div>
+          <div class="what"><h4>Wat kun je ermee</h4>
+            <ul>
+              <li>Ledentabel: profiel, trend, voorkeurskant en laatste activiteit. Kies een periode van 2 tot 12 weken.</li>
+              <li><b>Heeft de training zin?</b></li>
+              <li><b>Ploegcoaching patronen</b>: het kwaliteit-vermoeidheidspatroon van de ploeg.</li>
+              <li><b>Technische verschuiving</b> en <b>EP Constante Check</b>.</li>
+              <li><b>Consistency Challenge Leaderboard</b>.</li>
+              <li><b>EP Matrix</b>, <b>Norwegian 4×4</b> en <b>Crew Force Curve Analyse</b>.</li>
+              <li>Coaches: een andere coach uitnodigen per e-mail, een coach verwijderen, of zelf de crew verlaten.</li>
+            </ul>
+          </div>
+          <div class="how"><h4>Hoe</h4><p>Klap de blokken open die je nodig hebt. Het i-icoon geeft een woordenlijst van de maten.</p></div>
+        </div>
+        <figure class="ph"><span>Ledentabel van de ploeg.</span></figure>
+        <figure class="ph"><span>EP Matrix of Crew Force Curve Analyse.</span></figure>
+        <div class="todo-text">Per blok één zin "waarom/wat zie je" (Heeft de training zin?, Technische verschuiving, EP Constante Check, EP Matrix, Norwegian 4×4). Dit is BYB-analyse-inhoud; graag jouw tekst.</div>
+      </article>
+
+      <article class="feat" id="cc-roeier">
+        <div class="feat-head">
+          <div class="tags"><span class="tag coach">Coach</span></div>
+          <h3>Coaching per roeier</h3>
+          <p class="where">Crew › Ploeg › roeier › <b>Coaching voor deze roeier</b></p>
+        </div>
+        <div class="wwh">
+          <div class="why"><h4>Waarom</h4><p>Je ziet dezelfde coaching als je roeier in Zelfcoach ziet, zodat jullie over hetzelfde praten.</p></div>
+          <div class="what"><h4>Wat zie je</h4><p>Profiel, bevindingen, progressie en advies van die ene roeier.</p></div>
+          <div class="how"><h4>Hoe</h4><p>Klik in de ledentabel op een roeier en kies <b>Coaching voor deze roeier</b>. Vanuit een rapport kom je met de terugknop weer bij je crew.</p></div>
+        </div>
+      </article>
+
+      <article class="feat" id="cc-training">
+        <div class="feat-head">
+          <div class="tags"><span class="tag coach">Coach</span></div>
+          <h3>Training en opdrachten</h3>
+          <p class="where">Crew › <b>Training</b> › Volume · Deze week · Plan</p>
+        </div>
+        <div class="wwh">
+          <div class="why"><h4>Waarom</h4><p>Van seizoensplan naar weekopdracht, en terug: zie je of de ploeg doet wat er gepland is?</p></div>
+          <div class="what"><h4>Wat kun je ermee</h4>
+            <ul>
+              <li><b>Volume:</b> hoeveel de ploeg traint.</li>
+              <li><b>Deze week:</b> wie aan de opdrachten voldoet, en welke opdrachten verlopen zijn.</li>
+              <li><b>Plan:</b> wedstrijden, een seizoensplanning, trainingssjablonen en fases. Uit het plan maak je in één keer opdrachten.</li>
+              <li>Een opdracht aanmaken en <b>delen via WhatsApp</b>. Beat Your Best maakt het bericht; jij plakt het in de groep van je ploeg.</li>
+              <li>Beat Your Best koppelt de workouts van je roeiers zelf aan de opdrachten.</li>
+            </ul>
+          </div>
+          <div class="how"><h4>Hoe</h4><p>Bij Plan staat een uitleg <b>Hoe werkt de planning?</b>. Gebruik <b>Opdrachten genereren uit plan</b> om de opdrachten voor een periode klaar te zetten.</p></div>
+        </div>
+        <figure class="ph"><span>Training › Plan met de seizoensplanning.</span></figure>
+        <figure class="ph"><span>Een opdracht met de knop Delen via WhatsApp.</span></figure>
+      </article>
+
+      <article class="feat" id="cc-workouts">
+        <div class="feat-head">
+          <div class="tags"><span class="tag coach">Coach</span></div>
+          <h3>Workouts en rapporten</h3>
+          <p class="where">Crew › Training › <b>Workouts &amp; rapporten</b></p>
+        </div>
+        <div class="wwh">
+          <div class="why"><h4>Waarom</h4><p>Niet al je roeiers hebben (al) een eigen account. Hier analyseer je ook hun workouts, zodat de hele ploeg in beeld is.</p></div>
+          <div class="what"><h4>Wat kun je ermee</h4>
+            <ul>
+              <li>De workouts van al je leden, met filters.</li>
+              <li>Een rapport maken voor een roeier. Dat rapport ziet de roeier ook in zijn eigen Zelfcoach.</li>
+              <li><b>Ontbrekende analyses</b> laten maken voor roeiers met een account.</li>
+              <li><b>Analyseer non-BYB gebruikers:</b> de laatste vijf workouts van roeiers zonder account.</li>
+              <li><b>Uitnodigen via WhatsApp:</b> roeiers zonder account uitnodigen om er een te maken.</li>
+            </ul>
+          </div>
+          <div class="how"><h4>Hoe</h4><p>Open je crew › Training › Workouts &amp; rapporten. De analyses lopen op de achtergrond; je ziet ze daarna in Ploeg en Overzicht.</p></div>
+        </div>
+        <figure class="ph"><span>Workouts &amp; rapporten met de knoppen voor batch-analyse en uitnodigen.</span></figure>
+      </article>
+
+      <article class="feat" id="cc-boot">
+        <div class="feat-head">
+          <div class="tags"><span class="tag coach">Coach</span></div>
+          <h3>Boot: opstelling en logboek</h3>
+          <p class="where">Crew › <b>Boot</b> › Opstelling · Bootlogboek</p>
+        </div>
+        <div class="wwh">
+          <div class="why"><h4>Waarom</h4><p>De erg zegt veel over iedere roeier apart. In de boot gaat het erom wie bij wie past.</p></div>
+          <div class="what"><h4>Wat kun je ermee</h4>
+            <ul>
+              <li><b>Opstelling:</b> kies een boottype en laat Beat Your Best een opstelling voorstellen.</li>
+              <li><b>Bootlogboek:</b> houd bij wat je op het water hebt gedaan (oefeningen, afstand, bemanning, omstandigheden en notities), naast de ergodata.</li>
+            </ul>
+          </div>
+          <div class="how"><h4>Hoe</h4><p>Open je crew › Boot. Kies het boottype en de roeiers.</p></div>
+        </div>
+        <figure class="ph"><span>Opstelling met een voorgestelde bemanning.</span></figure>
+        <div class="todo-text">Eén zin over waar de opstelling op gebaseerd is. Dit is analyse-inhoud; graag jouw tekst.</div>
+      </article>
+
+      <div class="note">Niet opgenomen: de crew-tabbladen Coaching, Rankings en QFC-patronen (alleen via URL bereikbaar), en de losse opdrachtenlijst voor coaches (niet gelinkt). Zijn die nog actueel?</div>
+    </section>
+
+    <!-- ================================================= -->
+    <!-- 6. CLUBBEHEER                                      -->
+    <!-- ================================================= -->
+    <section class="chap" id="club">
+      <div class="chap-head">
+        <span class="num">06</span>
+        <h2>Clubbeheer</h2>
+      </div>
+      <article class="feat">
+        <div class="feat-head">
+          <div class="tags"><span class="tag club">Clubbeheerder</span></div>
+          <h3>Je club beheren</h3>
+          <p class="where">Menu › <b>Club Beheer</b></p>
+        </div>
+        <div class="wwh">
+          <div class="why"><h4>Waarom</h4><p>Een club kan haar leden toegang geven tot Beat Your Best, zonder dat iedereen apart hoeft af te rekenen.</p></div>
+          <div class="what"><h4>Wat kun je ermee</h4>
+            <ul>
+              <li><b>Abonnementscodes:</b> bekijk en kopieer codes, en zie wie ze heeft ingewisseld.</li>
+              <li><b>Ledenbeheer:</b> leden toevoegen, verwijderen en rollen wijzigen.</li>
+            </ul>
+          </div>
+          <div class="how"><h4>Hoe</h4><p>Leden worden lid via Profiel › <b>Lid worden van een club</b>, met de uitnodigingscode die jij ze geeft.</p></div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ================================================= -->
+    <!-- 7. ACCOUNT EN INSTELLINGEN                         -->
+    <!-- ================================================= -->
+    <section class="chap" id="account-instellingen">
+      <div class="chap-head">
+        <span class="num">07</span>
+        <h2>Account en instellingen</h2>
+        <p class="lede">Alles over jezelf vind je via je avatar rechtsboven, of via <b>Account</b> onderin op je telefoon.</p>
+      </div>
+
+      <article class="feat" id="abonnement">
+        <div class="feat-head">
+          <div class="tags"><span class="tag rower">Roeier</span><span class="tag coach">Coach</span></div>
+          <h3>Abonnement en codes</h3>
+          <p class="where">Profiel › Snelle links › <b>Beheer je abonnement</b></p>
+        </div>
+        <div class="wwh">
+          <div class="why"><h4>Waarom</h4><p>Je rapporten worden altijd gemaakt. Met een abonnement zie je ook de volledige rapporten, de voortgang en de coaching.</p></div>
+          <div class="what"><h4>Wat kun je ermee</h4>
+            <ul>
+              <li>Zien welk abonnement je hebt, tot wanneer, en wat er daarna gebeurt.</li>
+              <li>Een abonnement afsluiten voor roeiers (Roeier) of coaches (Coach Basis, Coach Plus), per maand of per jaar.</li>
+              <li>Een code inwisselen bij <b>Heb je een code?</b></li>
+              <li>Je abonnement opzeggen. Je houdt toegang tot het einde van de lopende periode; je rapporten blijven bewaard.</li>
+            </ul>
+          </div>
+          <div class="how"><h4>Hoe</h4><p>Klik op je avatar en kies bij Snelle links <b>Beheer je abonnement</b>. Codes kun je ook invullen op je dashboard.</p></div>
+        </div>
+        <figure class="ph"><span>Abonnementspagina met de huidige status en het vak "Heb je een code?".</span></figure>
+      </article>
+
+      <article class="feat" id="voorkeuren">
+        <div class="feat-head">
+          <div class="tags"><span class="tag rower">Roeier</span><span class="tag coach">Coach</span></div>
+          <h3>Profiel en voorkeuren</h3>
+          <p class="where">Profiel · Profiel › Snelle links › <b>Voorkeuren</b></p>
+        </div>
+        <div class="wwh">
+          <div class="what"><h4>Wat kun je ermee</h4>
+            <ul>
+              <li><b>Persoonlijke gegevens</b> en <b>Fysiek profiel</b> (lengte, gewichtsklasse, niveau, trainingsniveau). Wijzigingen gelden voor nieuwe rapporten; oude rapporten blijven zoals ze waren.</li>
+              <li><b>E-mail:</b> kies welke e-mails je krijgt, en als coach hoe vaak je een samenvatting ontvangt (dagelijks of wekelijks).</li>
+              <li><b>Intensiteitsdrempel:</b> de grens waarmee Beat Your Best je workouts in zones indeelt.</li>
+              <li><b>Tijdzone</b>, <b>taal</b> (NL/EN) en <b>licht/donker</b>.</li>
+              <li>Wachtwoord wijzigen, uitloggen of je account verwijderen.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="todo-text">Eén zin over wanneer je de intensiteitsdrempel zou aanpassen. Graag jouw tekst.</div>
+      </article>
+
+      <article class="feat" id="telefoon">
+        <div class="feat-head">
+          <div class="tags"><span class="tag rower">Roeier</span><span class="tag coach">Coach</span></div>
+          <h3>Beat Your Best op je telefoon</h3>
+        </div>
+        <div class="wwh">
+          <div class="why"><h4>Waarom</h4><p>Workout klaar, telefoon erbij: wat zegt Beat Your Best? De app is gemaakt om eerst op je telefoon te werken.</p></div>
+          <div class="how"><h4>Hoe</h4>
+            <ul>
+              <li><b>Android (Chrome):</b> kies <b>Installeren</b> als je browser dat voorstelt, of via het menu <b>Toevoegen aan startscherm</b>.</li>
+              <li><b>iPhone (Safari):</b> tik op de deelknop en kies <b>Zet op beginscherm</b>.</li>
+            </ul>
+            <p style="margin-top:8px">Er is niets te downloaden uit een appwinkel.</p>
+          </div>
+        </div>
+        <figure class="ph"><span>Beat Your Best als icoon op het beginscherm van een telefoon.</span></figure>
+      </article>
+    </section>
+
+    <!-- ================================================= -->
+    <!-- 8. FAQ                                             -->
+    <!-- ================================================= -->
+    <section class="chap faq" id="faq">
+      <div class="chap-head">
+        <span class="num">08</span>
+        <h2>Veelgestelde vragen</h2>
+      </div>
+      <div>
+        <details>
+          <summary>Mijn workout staat er niet tussen.</summary>
+          <div>
+            <p>Je workout moet eerst van je ergometer naar de RP3-cloud. Open de RP3-app na je training en wacht tot alles is geüpload. Ververs Beat Your Best daarna.</p>
+            <p>Staat hij er nog niet? Controleer of de workout in de RP3-app staat. Zo niet, dan is hij nog niet gesynchroniseerd. Heel korte workouts slaat Beat Your Best over.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Ik zie nog niet al mijn oude workouts.</summary>
+          <div><p>Die worden op de achtergrond in porties geanalyseerd. Wil je het versnellen, klik dan op <b>Analyseer mijn overige workouts</b> in Zelfcoach › Overzicht. Voor workouts van langer dan een jaar geleden: zie <a href="#prof-ouder">Oudere workouts</a>.</p></div>
+        </details>
+        <details>
+          <summary>Mijn RP3-koppeling werkt niet meer.</summary>
+          <div><p>Ga naar Profiel › Gekoppelde diensten, ontkoppel RP3 en koppel opnieuw. Meestal is je toegang verlopen, en dit lost het op.</p></div>
+        </details>
+        <details>
+          <summary>Mijn profiel is ineens anders.</summary>
+          <div><p>Een profiel hoort bij één workout. Verandert je training, dan verandert het profiel mee. Kijk naar wat het vaakst terugkomt over meerdere workouts. Denk je dat één afwijkende workout de oorzaak is, <a href="#prof-uitsluiten">sluit hem dan uit voor je profiel</a>.</p></div>
+        </details>
+        <details>
+          <summary>Werkt Beat Your Best met Concept2?</summary>
+          <div><p>Concept2-ondersteuning is in ontwikkeling. Voor de volledige analyse heb je de krachtcurve per haal nodig, en die levert een RP3.</p></div>
+        </details>
+        <details>
+          <summary>Kan mijn coach mijn rapporten zien?</summary>
+          <div><p>Ja, als je in de crew van je coach zit. Je coach nodigt je uit; je accepteert de uitnodiging op je dashboard.</p></div>
+        </details>
+        <details>
+          <summary>Wat gebeurt er als mijn abonnement afloopt?</summary>
+          <div><p>Je kunt gewoon inloggen. Je data en rapporten blijven bewaard, en nieuwe workouts worden nog steeds geanalyseerd. Alleen de volledige rapporten, voortgang en coaching zijn dan op slot.</p></div>
+        </details>
+        <details>
+          <summary>Ik krijg geen e-mails van Beat Your Best.</summary>
+          <div><p>Kijk in je spammap en markeer de e-mail als "geen spam". Controleer ook je e-mailadres en je <a href="#voorkeuren">e-mailvoorkeuren</a>.</p></div>
+        </details>
+        <details>
+          <summary>Ik heb een andere vraag.</summary>
+          <div><p>Mail naar <a href="mailto:info@beatyourbest.org">info@beatyourbest.org</a>.</p></div>
+        </details>
+      </div>
+      <div class="note">"Abonnement afgelopen" wijkt af van de huidige FAQ in de app ("geen nieuwe rapporten maken"). Volgens de code worden rapporten automatisch gemaakt en zit alleen de diepte op slot. Welke is juist?</div>
+    </section>
+
+    <!-- ================================================= -->
+    <!-- 9. BEGRIPPEN                                       -->
+    <!-- ================================================= -->
+    <section class="chap" id="begrippen">
+      <div class="chap-head">
+        <span class="num">09</span>
+        <h2>Begrippen</h2>
+      </div>
+      <div class="feat">
+        <div class="wwh">
+          <div><h4>EpS</h4><p>Energy per Stroke: de energie die je per haal levert, in joule.</p></div>
+          <div><h4>EWpS</h4><p>Effective Work per Stroke: het nuttige deel van die energie, gewogen met de kwaliteit van je haal. Het doel waar alles in Beat Your Best op gericht is.</p></div>
+          <div><h4>R²</h4><p>Hoe goed de vorm van je krachtcurve aansluit op een ideale curve. Apart gemeten voor het deel vóór de piek (pre-peak) en ná de piek (post-peak).</p></div>
+          <div><h4>IOF</h4><p>Input-Output Factor: hoe voorspelbaar de relatie tussen EpS en vermogen is over alle halen van een workout. Het gaat om dezelfde haal consequent herhalen. Kijk naar de trend over meerdere workouts, niet naar één losse waarde.</p></div>
+          <div><h4>LO · MED · HI</h4><p>De drie intensiteitszones: rustig (UT2), rond de drempel (UT1/AT), en intensief (AZ).</p></div>
+          <div><h4>Streefwaarden</h4><p>Je persoonlijke richtwaarden per zone, berekend uit je eigen profiel.</p></div>
+          <div><h4>Kwaliteit-Vermoeidheidspatroon</h4><p>Wat er met de kwaliteit van je haal gebeurt naarmate je moe wordt.</p></div>
+        </div>
+        <div class="note">IOF-tekst is gebaseerd op jouw canonieke uitleg (voor Andrea). EWpS en R² zijn gebaseerd op je parameter-hiërarchie (EWpS = R² total × EPS), niet op de verouderde FAQ, maar graag checken. De lijst kan langer (consistency, peak force, rPFP); welke wil je erin?</div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <img src="assets/rp3/byb-logo.png" alt="Beat Your Best">
+    <div>Vragen? <a href="mailto:info@beatyourbest.org">info@beatyourbest.org</a> · <a href="https://my.beatyourbest.org">my.beatyourbest.org</a></div>
+  </div>
+</footer>
+</body>
+</html>
